@@ -9,6 +9,14 @@
         <title>CRM</title>
     </head>
     <body>
-        <h1>Добро пожаловать, ${name}!</h1>
+        <h1>Заявки</h1>
+        <table>
+            <c:forEach items="${orders}" var="order">
+                <tr>
+                    <td>${order.id}</td>
+                    <td>${order.description}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </body>
 </html>
