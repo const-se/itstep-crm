@@ -1,3 +1,4 @@
-local.mysql.db_name=
-local.mysql.username=
-local.mysql.password=
+local.mysql.db_name=crm
+local.mysql.username=root
+local.mysql.password=12345
+local.server.port=8085
