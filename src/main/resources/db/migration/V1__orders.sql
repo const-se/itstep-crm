@@ -1,4 +1,4 @@
-CREATE TABLE `crm`.`orders` (
+CREATE TABLE `orders` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(255) NULL,
   PRIMARY KEY (`id`)
