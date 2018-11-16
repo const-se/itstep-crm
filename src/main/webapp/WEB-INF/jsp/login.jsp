@@ -7,12 +7,16 @@
         <title>Авторизация</title>
     </head>
     <body>
+        <h1>Вход</h1>
         <form action="/login" method="POST">
             <label for="username">Логин</label><br/>
             <input type="text" id="username" name="username"/><br/>
             <label for="password">Пароль</label><br/>
             <input type="password" id="password" name="password"/><br/>
+            <br/>
             <button type="submit">Войти</button>
-        </form:form>
+        </form>
+        <br/>
+        <a href="/registration">Регистрация</a>
     </body>
 </html>
