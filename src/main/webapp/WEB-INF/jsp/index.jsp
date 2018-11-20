@@ -5,9 +5,13 @@
     <head>
         <meta charset="UTF-8"/>
         <title>CRM</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     </head>
     <body>
-        <h1>Добро пожаловать!</h1>
-        <a href="/logout">Выйти</a>
+        <div class="container p-5">
+            <h1>Добро пожаловать!</h1>
+            <a href="/logout">Выйти</a>
+        </div>
+        <script src="/js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -27,7 +27,10 @@ public class SecurityController implements WebMvcConfigurer {
 
     @GetMapping("/registration")
     public ModelAndView registration() {
-        return new ModelAndView("registration", "user", new User());
+        ModelAndView modelAndView = new ModelAndView("registration");
+        modelAndView.addObject("user", new User());
+
+        return modelAndView;
     }
 
     @PostMapping("/register")

@@ -6,19 +6,25 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8"/>
-        <title>Авторизация</title>
+        <title>Регистрация</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     </head>
     <body>
-        <h1>Регистрация</h1>
-        <form:form action="/register" method="POST" modelAttribute="user">
-            <form:label path="username">Логин</form:label><br/>
-            <form:input path="username"/><br/>
-            <form:label path="password">Пароль</form:label><br/>
-            <form:password path="password"/><br/>
-            <br/>
-            <button type="submit">Зарегистрироваться</button>
-        </form:form>
-        <br/>
-        <a href="/login">Войти</a>
+        <div class="container p-5">
+            <h1>Регистрация</h1>
+            <form:form action="/register" method="POST" modelAttribute="user" class="w-50 my-5">
+                <div class="form-group">
+                    <form:label path="username">Логин</form:label>
+                    <form:input path="username" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <form:label path="password">Пароль</form:label>
+                    <form:password path="password" class="form-control"/>
+                </div>
+                <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+                <a href="/login" class="btn btn-secondary">Войти</a>
+            </form:form>
+        </div>
+        <script src="/js/bootstrap.min.js"></script>
     </body>
 </html>

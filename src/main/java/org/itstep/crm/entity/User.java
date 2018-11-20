@@ -1,6 +1,9 @@
 package org.itstep.crm.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -8,16 +11,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "INT UNSIGNED NOT NULL")
+    @NotNull
     private Long id;
 
     @Column(name = "username", columnDefinition = "VARCHAR(100) NOT NULL", unique = true)
+    @NotNull
     private String username;
 
     @Column(name = "password", columnDefinition = "VARCHAR(100) NOT NULL")
+    @NotNull
     private String password;
 
-    @Column(name = "role", columnDefinition = "VARCHAR(100) NOT NULL")
-    private String role = "ROLE_USER";
+    @ManyToMany(targetEntity = Role.class)
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+        inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
+    )
+    private Set<Role> roles = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -43,11 +54,7 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    public Set<Role> getRoles() {
+        return roles;
     }
 }
