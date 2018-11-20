@@ -22,8 +22,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .jdbcAuthentication()
             .dataSource(dataSource)
             .usersByUsernameQuery("SELECT username, password, 1 AS enabled FROM users WHERE username = ?")
-            .authoritiesByUsernameQuery("SELECT u.username, r.name AS authority FROM users WHERE username = ? INNER JOIN user_roles ur ON ur.user_id = u.id INNER JOIN roles r ON r.id = ur.role_id")
-            .passwordEncoder(new BCryptPasswordEncoder());
+            .authoritiesByUsernameQuery(
+                "SELECT u.username, r.name AS authority " +
+                "FROM users u " +
+                "INNER JOIN user_roles ur ON ur.user_id = u.id " +
+                "INNER JOIN roles r ON r.id = ur.role_id " +
+                "WHERE username = ?"
+            ).passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
