@@ -1,6 +1,8 @@
 package org.itstep.crm.controller;
 
+import org.itstep.crm.entity.Role;
 import org.itstep.crm.entity.User;
+import org.itstep.crm.repository.RoleRepository;
 import org.itstep.crm.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,6 +21,9 @@ import javax.validation.Valid;
 public class SecurityController implements WebMvcConfigurer {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -43,6 +48,8 @@ public class SecurityController implements WebMvcConfigurer {
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
+        Role role = roleRepository.findOneByName("ROLE_USER");
+        user.getRoles().add(role);
         userRepository.save(user);
 
         return new RedirectView("/login");

@@ -11,7 +11,6 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "INT UNSIGNED NOT NULL")
-    @NotNull
     private Long id;
 
     @Column(name = "description", columnDefinition = "VARCHAR(255) NULL")

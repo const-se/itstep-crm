@@ -1,7 +1,6 @@
 package org.itstep.crm.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,15 +10,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "INT UNSIGNED NOT NULL")
-    @NotNull
     private Long id;
 
     @Column(name = "username", columnDefinition = "VARCHAR(100) NOT NULL", unique = true)
-    @NotNull
     private String username;
 
     @Column(name = "password", columnDefinition = "VARCHAR(100) NOT NULL")
-    @NotNull
     private String password;
 
     @ManyToMany(targetEntity = Role.class)
