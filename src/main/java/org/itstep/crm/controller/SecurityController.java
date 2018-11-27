@@ -27,12 +27,12 @@ public class SecurityController implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/login").setViewName("security/login");
     }
 
     @GetMapping("/registration")
     public ModelAndView registration() {
-        ModelAndView modelAndView = new ModelAndView("registration");
+        ModelAndView modelAndView = new ModelAndView("security/registration");
         modelAndView.addObject("user", new User());
 
         return modelAndView;

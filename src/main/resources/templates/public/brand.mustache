@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>{{brand.name}}</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    </head>
+    <body>
+        <div class="container p-5">
+            <h1>{{brand.name}}</h1>
+            <hr/>
+            <div class="row">
+                {{#cars}}
+                    <div class="col-4">
+                        <a href="#">
+                            <strong>{{name}}</strong>
+                        </a><br/>
+                        {{cost}} руб.
+                    </div>
+                {{/cars}}
+            </div>
+            <a href="/" class="btn btn-secondary">Все автомобили</a>
+        </div>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,9 +1,6 @@
 package org.itstep.crm.entity;
 
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "orders")
@@ -13,9 +10,12 @@ public class Order {
     @Column(name = "id", columnDefinition = "INT UNSIGNED NOT NULL")
     private Long id;
 
-    @Column(name = "description", columnDefinition = "VARCHAR(255) NULL")
-    @Nullable
-    private String description;
+    @Column(name = "order_comment", columnDefinition = "VARCHAR(255) NULL")
+    private String comment;
+
+    @ManyToOne(targetEntity = Car.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "car_id", referencedColumnName = "id")
+    private Car car;
 
     public Long getId() {
         return id;
@@ -25,12 +25,19 @@ public class Order {
         this.id = id;
     }
 
-    @Nullable
-    public String getDescription() {
-        return description;
+    public String getComment() {
+        return comment;
     }
 
-    public void setDescription(@Nullable String description) {
-        this.description = description;
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 }
