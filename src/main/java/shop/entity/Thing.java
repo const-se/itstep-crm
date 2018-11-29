@@ -24,7 +24,7 @@ public class Thing {
     @Column(name = "cost", columnDefinition = "INT NOT NULL")
     private int cost;
 
-    @Column(name = "size", columnDefinition = "INT NOT NULL")
+    @Column(name = "thing_size", columnDefinition = "INT NOT NULL")
     private int size;
 
     @Column(name = "color", columnDefinition = "VARCHAR(255) NOT NULL")
