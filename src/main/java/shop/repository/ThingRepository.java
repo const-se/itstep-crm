@@ -15,4 +15,5 @@ public interface ThingRepository extends CrudRepository<Thing, Long> {
 
     @Query("SELECT t FROM Thing t WHERE t.category = :c")
     Iterable<Thing> findAllByCategory(@Param("c") Category category);
+
 }
