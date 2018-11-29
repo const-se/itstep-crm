@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:border="http://www.w3.org/1999/xhtml" xmlns:background-color="http://www.w3.org/1999/xhtml"
+      xmlns:height="http://www.w3.org/1999/xhtml" xmlns:width="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Товар</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container p-5">
+    <h1>{{thing.brand.name}} {{thing.name}}</h1>
+    <a href="/category/{{thing.category.id}}">
+        {{thing.category.name}}
+    </a>
+    <br/>
+    Цвет:
+    <span style="display:inline-block;
+          border: 2px solid black;
+          background-color:#{{thing.color}};
+          height:20px;
+          width:20px;>
+      ">
+    </span>
+    <br/>
+    Размер: {{thing.size}}
+    <br/>
+    Цена:<strong>{{thing.cost}} руб.</strong>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

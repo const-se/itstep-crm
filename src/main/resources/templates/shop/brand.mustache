@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Бренд</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container p-5">
+    <h1>{{brand_name}}</h1>
+    <ul>
+        {{#things}}
+            <li>
+                <a href="/thing/{{id}}/">{{name}}</a>
+            </li>
+        {{/things}}
+    </ul>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
