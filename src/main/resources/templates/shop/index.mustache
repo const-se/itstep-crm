@@ -15,6 +15,14 @@
                     </li>
                 {{/categories}}
             </ul>
+            <h2>Все бренды</h2>
+            <ul>
+                {{#brands}}
+                    <li>
+                        <a href="/brand/{{id}}/">{{name}}</a>
+                    </li>
+                {{/brands}}
+            </ul>
         </div>
         <script src="/js/bootstrap.min.js"></script>
     </body>
